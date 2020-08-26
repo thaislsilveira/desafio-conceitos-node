@@ -39,6 +39,8 @@ app.put("/repositories/:id", (request, response) => {
     return response.status(400).json({ error: 'Repositor not found!'});
   }
 
+  //necessário passar os likes também, já que não atualizamos ele manualmente
+  //os likes entram dentro do ...repositories[repositorIndex]
   const repositor = {
     ...repositories[repositorIndex],
     id,
@@ -74,6 +76,8 @@ app.post("/repositories/:id/like", (request, response) => {
   if(repositorIndex < 0) {
     return response.status(400).json({ error: 'Repositor not found!'});
   }
+
+  //adicionando + 1 nos likes já existentes
 
   repositories[repositorIndex].likes += 1
 
