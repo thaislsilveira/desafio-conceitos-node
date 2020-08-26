@@ -40,6 +40,7 @@ app.put("/repositories/:id", (request, response) => {
   }
 
   const repositor = {
+    ...repositories[repositorIndex],
     id,
     title,
     url, 
